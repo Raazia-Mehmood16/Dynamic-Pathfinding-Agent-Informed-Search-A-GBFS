@@ -41,21 +41,30 @@ Built using **Python** and **Tkinter** (no external libraries required).
 
 ### Prerequisites
 
-- Python 3.8 or higher
-- Tkinter (comes built-in with standard Python)
+- Python 3.8 or higher  
+- Tkinter (comes built-in with standard Python installations)
 
 Check Python version:
+
+```bash
 python --version
+```
+
 Check Tkinter:
-python -m tkinter
-python -m tkinter
 
-If a small window appears → you're good to go.
+```bash
+python -m tkinter
+```
 
-📦 Installation
+If a small test window appears, you're good to go.
+
+---
+
+## 📦 Installation
 
 No external packages required.
 
+```bash
 # 1. Clone repository
 git clone https://github.com/YOUR_USERNAME/dynamic-pathfinder.git
 
@@ -64,93 +73,135 @@ cd dynamic-pathfinder
 
 # 3. Run application
 python dynamic_pathfinder.py
-Notes:
+```
 
-Windows: use python or py
+### Notes
 
-Mac/Linux: use python3 if needed
+- Windows: use `python` or `py`
+- Mac/Linux: use `python3` if needed
 
-🖥️ How to Use
-Step 1 — Grid Setup
-Action	How
-Set Start	Click Set Start (S) → Click cell
-Set Target	Click Set Target (T) → Click cell
-Draw Walls	Click Draw Wall → Click/Drag
-Erase Walls	Click Erase Wall
-Random Map	Set Wall % → Click Generate
-Resize Grid	Set Rows & Cols → Apply
-Step 2 — Configure Algorithm
+---
 
-Select Search Strategy: A* or GBFS
+## 🖥️ How to Use
 
-Select Heuristic: Manhattan, Euclidean, Chebyshev
+### Step 1 — Grid Setup
 
-Step 3 — Run
+| Action | How |
+|--------|-----|
+| Set Start | Click **Set Start (S)** → Click a cell |
+| Set Target | Click **Set Target (T)** → Click a cell |
+| Draw Walls | Click **Draw Wall** → Click or drag |
+| Erase Walls | Click **Erase Wall** |
+| Generate Random Map | Set Wall % → Click Generate |
+| Resize Grid | Set Rows & Cols → Click Apply |
 
-▶ RUN SEARCH
+---
 
-■ STOP
+### Step 2 — Configure Algorithm
 
-Clear Path → clears only path
+- Choose **Search Strategy**: A* or GBFS  
+- Choose **Heuristic Function**: Manhattan, Euclidean, or Chebyshev  
 
-Reset Grid → clears everything
+---
 
-Step 4 — Dynamic Mode (Optional)
+### Step 3 — Run
 
-Enable Dynamic Obstacles
+- ▶ **RUN SEARCH**
+- ■ **STOP**
+- **Clear Path** → clears only path (keeps walls)
+- **Reset Grid** → clears everything
 
-Set Spawn Probability (%)
+---
 
-Run search
-Agent will automatically re-plan if blocked.
+### Step 4 — Dynamic Mode (Optional)
 
-🎨 Colour Guide
-Colour	Meaning
-🟢 Green	Start Node
-🔵 Blue	Target Node
-🩷 Pink	Wall
-🟡 Yellow	Frontier
-⬛ Grey	Visited
-🟣 Purple	Final Path
-🟠 Orange	Agent
-📁 Project Structure
+1. Enable **Dynamic Obstacles**
+2. Set **Spawn Probability (%)**
+3. Run the search  
+
+The agent will automatically re-plan if its path gets blocked.
+
+---
+
+## 🎨 Colour Guide
+
+| Colour | Meaning |
+|--------|----------|
+| 🟢 Green | Start Node (S) |
+| 🔵 Blue | Target Node (T) |
+| 🩷 Pink | Wall / Obstacle |
+| 🟡 Yellow | Frontier (Open List) |
+| ⬛ Grey | Visited (Closed List) |
+| 🟣 Purple | Final Path |
+| 🟠 Orange | Moving Agent |
+
+---
+
+## 📁 Project Structure
+
+```
 dynamic-pathfinder/
 │
-├── dynamic_pathfinder.py   # Main application
+├── dynamic_pathfinder.py   # Main application (all code in one file)
 └── README.md               # Documentation
-🧠 Algorithm Summary
-A* Search
+```
+
+---
+
+## 🧠 Algorithm Summary
+
+### A* Search
+
+```
 f(n) = g(n) + h(n)
+```
 
-g(n) = cost from start
+- g(n) = exact cost from start to node n  
+- h(n) = heuristic estimate from node n to goal  
+- Optimal and complete when heuristic is admissible  
 
-h(n) = heuristic estimate to goal
+---
 
-Optimal and complete (with admissible heuristic)
+### Greedy Best-First Search
 
-Greedy Best-First Search
+```
 f(n) = h(n)
+```
 
-Ignores path cost
+- Uses heuristic only  
+- Faster than A*  
+- Not guaranteed optimal  
 
-Faster but not optimal
+---
 
-📊 Heuristics Comparison
-Heuristic	Formula	Best For
-Manhattan		Δr
-Euclidean	√(Δr² + Δc²)	Straight-line
-Chebyshev	max(	Δr
-⚠️ Troubleshooting
-Problem	Solution
-No module named tkinter	Install python3-tk (Linux)
-Blank window	Ensure Python 3.8+
-No path found	Target may be surrounded
-App freezes	Stop & reduce grid size
-📄 License
+## 📊 Heuristics Comparison
 
-Developed for academic purposes (AI Course – FAST NUCES).
+| Heuristic | Formula | Best For |
+|------------|---------|----------|
+| Manhattan | \|Δr\| + \|Δc\| | 4-direction grids |
+| Euclidean | √(Δr² + Δc²) | Straight-line distance |
+| Chebyshev | max(\|Δr\|, \|Δc\|) | 8-direction grids (Recommended) |
 
-❤️ Author
+---
 
-Made with dedication by
-Raazia Mehmood (24F-0614)
+## ⚠️ Troubleshooting
+
+| Problem | Solution |
+|----------|-----------|
+| No module named tkinter | Install `python3-tk` (Linux only) |
+| Blank window | Ensure Python 3.8+ is being used |
+| No path found | Target may be completely surrounded |
+| App freezes | Click STOP, try smaller grid or lower wall density |
+
+---
+
+## 📄 License
+
+This project was developed for academic purposes as part of the AI course at FAST NUCES.
+
+---
+
+## ❤️ Author
+
+Made with dedication by  
+**Raazia Mehmood (24F-0614)**
