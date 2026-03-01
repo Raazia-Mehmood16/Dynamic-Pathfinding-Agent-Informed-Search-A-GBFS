@@ -45,8 +45,6 @@ Built using **Python** and **Tkinter** (no external libraries required).
 - Tkinter (comes built-in with standard Python)
 
 Check Python version:
-
-```bash
 python --version
 Check Tkinter:
 python -m tkinter
